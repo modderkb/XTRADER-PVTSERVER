@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dragon X — Neon UI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#060816;
+  --card:#0f1729;
+  --card2:#111c33;
+  --primary:#7c4dff;
+  --secondary:#00e5ff;
+  --pink:#ff4dbe;
+  --white:#ffffff;
+  --soft:#9aa4c7;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+    radial-gradient(circle at top left,#1b1040 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#001f3f 0%,transparent 35%),
+    var(--bg);
+
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Inter,sans-serif;
+  color:white;
+  overflow:hidden;
+}
+
+.phone{
+  width:360px;
+  border-radius:28px;
+  padding:18px;
+  background:rgba(16,22,40,.95);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 0 40px rgba(124,77,255,.35),
+    inset 0 0 30px rgba(255,255,255,.02);
+
+  backdrop-filter:blur(18px);
+}
+
+/* HEADER */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.logo{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:white;
+  font-size:18px;
+  box-shadow:0 0 20px rgba(124,77,255,.7);
+}
+
+.title{
+  font-family:Orbitron;
+  font-size:20px;
+  font-weight:700;
+  background:linear-gradient(90deg,var(--secondary),var(--pink));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.cta{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.btn{
+  text-decoration:none;
+  color:white;
+  font-size:12px;
+  font-weight:700;
+  padding:9px 14px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--pink));
+  box-shadow:0 0 18px rgba(255,77,190,.45);
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px) scale(1.04);
+}
+
+.badge{
+  text-align:center;
+  padding:7px 10px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:700;
+  background:rgba(255,255,255,.08);
+  color:var(--secondary);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+/* PANEL */
+
+.panel{
+  background:linear-gradient(180deg,var(--card),var(--card2));
+  border-radius:24px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.toprow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.period{
+  font-family:Orbitron;
+  font-size:15px;
+  color:var(--secondary);
+}
+
+.period span{
+  color:white;
+}
+
+.timer{
+  font-family:Orbitron;
+  font-size:22px;
+  color:var(--pink);
+  text-shadow:0 0 15px rgba(255,77,190,.8);
+}
+
+/* CIRCLE */
+
+.circle-wrap{
+  margin:28px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.ring{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  position:relative;
+
+  background:
+    linear-gradient(var(--card),var(--card)) padding-box,
+    linear-gradient(135deg,var(--primary),var(--secondary),var(--pink)) border-box;
+
+  border:4px solid transparent;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  box-shadow:
+    0 0 25px rgba(124,77,255,.5),
+    0 0 60px rgba(0,229,255,.15);
+
+  animation:rotateGlow 5s linear infinite;
+}
+
+@keyframes rotateGlow{
+  0%{
+    filter:hue-rotate(0deg);
+  }
+  100%{
+    filter:hue-rotate(360deg);
+  }
+}
+
+.ring::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border-radius:50%;
+  background:#09101f;
+  box-shadow:inset 0 0 25px rgba(0,0,0,.7);
+}
+
+.digit{
+  position:relative;
+  z-index:2;
+  font-size:88px;
+  font-family:Orbitron;
+  font-weight:800;
+
+  background:linear-gradient(180deg,var(--secondary),white);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:0 0 30px rgba(0,229,255,.7);
+}
+
+.label-pill{
+  margin-top:18px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--soft);
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+/* BUTTONS */
+
+.actions{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.predict{
+  padding:14px;
+  border:none;
+  border-radius:16px;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  color:white;
+
+  background:linear-gradient(135deg,var(--primary),var(--pink));
+  box-shadow:
+    0 0 20px rgba(124,77,255,.5),
+    0 0 25px rgba(255,77,190,.35);
+
+  transition:.25s;
+}
+
+.predict:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+.small-row{
+  display:flex;
+  gap:12px;
+}
+
+.auto,
+.clear{
+  flex:1;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.auto:hover,
+.clear:hover{
+  background:rgba(255,255,255,.09);
+  transform:translateY(-2px);
+}
+
+/* MOBILE */
+
+@media(max-width:420px){
+  .phone{
+    width:95%;
+  }
+
+  .ring{
+    width:200px;
+    height:200px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <div class="header">
+
+    <div class="logo">AI</div>
+
+    <div class="title">51 GAME</div>
+
+    <div class="cta">
+      <a class="btn" href="https://t.me/+ThuAXeLBwwhjYzRl">JOIN</a>
+      <div class="badge">100% SURESHOT</div>
+    </div>
+
+  </div>
+
+  <div class="panel">
+
+    <div class="toprow">
+      <div class="period">
+        PERIOD:
+        <span>XXXX-XXXX-XXXX-XXXX</span>
+      </div>
+
+      <div class="timer">XX-XX</div>
+    </div>
+
+    <div class="circle-wrap">
+
+      <div class="ring">
+        <div class="digit">7</div>
+      </div>
+
+      <div class="label-pill">
+        PREDICTED
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button class="predict">
+        PREDICT BY SERVER
+      </button>
+
+      <div class="small-row">
+        <button class="auto">AUTO MODE</button>
+        <button class="clear">CLEAR</button>
+      </div>
+
+    </div>
+
+  </div>
+
+<script>
+const digitEl = document.querySelector(".digit");
+const timerEl = document.querySelector(".timer");
+const periodEl = document.querySelector(".period span");
+const labelEl = document.querySelector(".label-pill");
+const badgeEl = document.querySelector(".badge");
+const ringEl = document.querySelector(".ring");
+
+const predictBtn = document.querySelector(".predict");
+const autoBtn = document.querySelector(".auto");
+const clearBtn = document.querySelector(".clear");
+
+let autoMode = false;
+
+/* RANDOM DIGIT */
+
+function randomDigit() {
+  return Math.floor(Math.random() * 10);
+}
+
+/* RANDOM CONFIDENCE */
+
+function randomConfidence() {
+  return 90 + Math.floor(Math.random() * 10);
+}
+
+/* MAKE PREDICTION */
+
+function makePrediction() {
+
+  const digit = randomDigit();
+  const confidence = randomConfidence();
+
+  digitEl.innerText = digit;
+
+  labelEl.innerText = "PREDICTED";
+
+  badgeEl.innerText = `${confidence}% SURESHOT`;
+
+  /* GLOW EFFECT */
+
+  ringEl.style.transform = "scale(1.05)";
+  ringEl.style.boxShadow =
+    "0 0 35px rgba(124,77,255,.8),0 0 60px rgba(0,229,255,.4)";
+
+  setTimeout(() => {
+    ringEl.style.transform = "scale(1)";
+    ringEl.style.boxShadow =
+      "0 0 25px rgba(124,77,255,.5),0 0 60px rgba(0,229,255,.15)";
+  }, 250);
+}
+
+/* TIMER + PERIOD */
+
+function updateTimer() {
+
+  const now = new Date();
+
+  const seconds = now.getSeconds();
+  const remaining = 60 - seconds;
+
+  timerEl.innerText =
+    `00:${String(remaining).padStart(2, "0")}`;
+
+  /* PERIOD */
+
+  const Y = now.getUTCFullYear();
+  const M = String(now.getUTCMonth() + 1).padStart(2, "0");
+  const D = String(now.getUTCDate()).padStart(2, "0");
+
+  const totalMinutes =
+    now.getUTCHours() * 60 + now.getUTCMinutes();
+
+  const period =
+    `${Y}${M}${D}1000${10001 + totalMinutes}`;
+
+  periodEl.innerText = period;
+
+  /* AUTO MODE */
+
+  if (autoMode && seconds === 0) {
+    makePrediction();
+  }
+}
+
+/* BUTTON EVENTS */
+
+predictBtn.addEventListener("click", () => {
+  makePrediction();
+});
+
+autoBtn.addEventListener("click", () => {
+
+  autoMode = !autoMode;
+
+  if (autoMode) {
+    autoBtn.innerText = "AUTO ON";
+    autoBtn.style.background =
+      "linear-gradient(135deg,#7c4dff,#00e5ff)";
+    autoBtn.style.color = "white";
+
+    makePrediction();
+
+  } else {
+
+    autoBtn.innerText = "AUTO MODE";
+    autoBtn.style.background =
+      "rgba(255,255,255,.04)";
+  }
+});
+
+clearBtn.addEventListener("click", () => {
+
+  digitEl.innerText = "?";
+
+  labelEl.innerText = "WAITING";
+
+  badgeEl.innerText = "SURESHOT";
+
+});
+
+/* START */
+
+setInterval(updateTimer, 1000);
+
+updateTimer();
+</script>

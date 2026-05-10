@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>X TRADER AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#060816;
+  --card:#101827;
+  --card2:#131f35;
+  --primary:#7c3aed;
+  --secondary:#00e5ff;
+  --pink:#ff3cac;
+  --green:#6cff32;
+  --white:#ffffff;
+  --soft:#94a3b8;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+  radial-gradient(circle at top left,#241045 0%,transparent 35%),
+  radial-gradient(circle at bottom right,#00243d 0%,transparent 35%),
+  var(--bg);
+
+  font-family:Inter,sans-serif;
+  color:white;
+  min-height:100vh;
+}
+
+/* HEADER */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  backdrop-filter:blur(18px);
+
+  background:rgba(6,8,22,.85);
+
+  padding:22px 18px;
+
+  border-bottom:1px solid rgba(255,255,255,.05);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+
+  background:
+  linear-gradient(135deg,var(--primary),var(--secondary),var(--pink));
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family:Orbitron;
+  font-weight:800;
+  font-size:18px;
+
+  box-shadow:
+  0 0 20px rgba(124,58,237,.45);
+}
+
+.logo-text{
+  font-family:Orbitron;
+  font-size:22px;
+  font-weight:800;
+
+  background:
+  linear-gradient(90deg,var(--secondary),var(--pink));
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.profile{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+
+  background:
+  linear-gradient(135deg,var(--primary),var(--pink));
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-weight:700;
+}
+
+/* TABS */
+
+.tabs{
+  padding:18px;
+  display:flex;
+  gap:12px;
+  overflow:auto;
+}
+
+.tab{
+  min-width:max-content;
+
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(255,255,255,.05);
+
+  color:#d8e2ff;
+
+  font-weight:700;
+  font-size:14px;
+
+  transition:.25s;
+}
+
+.tab.active{
+  background:
+  linear-gradient(135deg,var(--primary),var(--pink));
+
+  box-shadow:
+  0 0 18px rgba(255,60,172,.35);
+}
+
+/* SECTION */
+
+.section{
+  padding:0 18px;
+}
+
+.section-title{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:18px;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--green);
+
+  box-shadow:0 0 12px var(--green);
+}
+
+/* TRENDING */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.card{
+  position:relative;
+
+  background:
+  linear-gradient(180deg,var(--card),var(--card2));
+
+  border-radius:24px;
+
+  overflow:hidden;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  transition:.25s;
+
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-4px) scale(1.02);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(135deg,rgba(124,58,237,.15),transparent);
+
+  pointer-events:none;
+}
+
+.card-top{
+  padding:18px;
+  text-align:center;
+}
+
+.card img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:22px;
+
+  border:2px solid rgba(255,255,255,.08);
+
+  box-shadow:
+  0 0 18px rgba(0,229,255,.2);
+}
+
+.card-name{
+  margin-top:14px;
+  font-size:16px;
+  font-weight:700;
+}
+
+.card-desc{
+  margin-top:6px;
+  font-size:12px;
+  color:var(--soft);
+}
+
+.card-btn{
+  margin:16px;
+
+  height:46px;
+
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  background:
+  linear-gradient(135deg,var(--primary),var(--pink));
+
+  font-weight:800;
+
+  box-shadow:
+  0 0 20px rgba(255,60,172,.3);
+}
+
+.card-btn img{
+  width:18px;
+  height:18px;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+}
+
+/* TELEGRAM */
+
+.telegram{
+  margin:35px 18px 25px;
+
+  padding:18px;
+
+  border-radius:22px;
+
+  background:
+  linear-gradient(135deg,rgba(0,229,255,.15),rgba(124,58,237,.12));
+
+  border:1px solid rgba(255,255,255,.05);
+
+  text-align:center;
+}
+
+.telegram h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.telegram p{
+  font-size:13px;
+  color:#c9d4f1;
+}
+
+.telegram-btn{
+  margin-top:14px;
+
+  display:inline-flex;
+
+  padding:12px 20px;
+
+  border-radius:14px;
+
+  background:
+  linear-gradient(135deg,var(--secondary),var(--primary));
+
+  font-weight:800;
+}
+
+/* GAME LIST */
+
+.game-list{
+  padding:0 18px 35px;
+}
+
+.game{
+  margin-bottom:14px;
+
+  background:
+  linear-gradient(180deg,var(--card),var(--card2));
+
+  border-radius:22px;
+
+  padding:16px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  transition:.25s;
+
+  cursor:pointer;
+}
+
+.game:hover{
+  transform:translateY(-3px);
+}
+
+.game-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.game-left img{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+
+  border-radius:18px;
+
+  border:2px solid rgba(255,255,255,.06);
+}
+
+.game-name{
+  font-size:16px;
+  font-weight:700;
+}
+
+.game-sub{
+  margin-top:5px;
+  font-size:12px;
+  color:var(--soft);
+}
+
+.status{
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  background:rgba(108,255,50,.12);
+
+  border:1px solid rgba(108,255,50,.2);
+
+  color:var(--green);
+
+  font-size:12px;
+  font-weight:800;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:400px){
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+  <div class="logo">
+
+    <div class="logo-icon">
+      X
+    </div>
+
+    <div class="logo-text">
+      X TRADER AI
+    </div>
+
+  </div>
+
+  <div class="profile">
+    AI
+  </div>
+
+</div>
+
+<!-- TABS -->
+
+<div class="tabs">
+
+  <div class="tab active">
+    All
+  </div>
+
+  <div class="tab">
+    Trending
+  </div>
+
+  <div class="tab">
+    Premium
+  </div>
+
+  <div class="tab">
+    New
+  </div>
+
+</div>
+
+<!-- TRENDING -->
+
+<div class="section">
+
+  <div class="section-title">
+    <div class="dot"></div>
+    Trending Games
+  </div>
+
+  <div class="cards">
+
+    <!-- CARD -->
+
+    <div class="card"
+    onclick="location.href='JAICLUB.html'">
+
+      <div class="card-top">
+
+        <img
+        src="https://i.postimg.cc/3Rd9d04Z/IMG-20260508-045517-549.jpg">
+
+        <div class="card-name">
+          JAI CLUB
+        </div>
+
+        <div class="card-desc">
+          AI Prediction Access
+        </div>
+
+      </div>
+
+      <div class="card-btn">
+
+        <img
+        src="https://cdn-icons-png.flaticon.com/512/1828/1828778.png">
+
+        Open Signal
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card"
+    onclick="location.href='bdg-win.html'">
+
+      <div class="card-top">
+
+        <img
+        src="https://i.postimg.cc/rmGtCtKW/bigdaddygame.png">
+
+        <div class="card-name">
+          BDG WIN
+        </div>
+
+        <div class="card-desc">
+          Secure AI Signal
+        </div>
+
+      </div>
+
+      <div class="card-btn">
+
+        <img
+        src="https://cdn-icons-png.flaticon.com/512/1828/1828778.png">
+
+        Open Signal
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TELEGRAM -->
+
+<div class="telegram">
+
+  <h3>
+    Join Our Telegram
+  </h3>
+
+  <p>
+    Get instant VIP updates and new AI signals daily
+  </p>
+
+  <div class="telegram-btn">
+    JOIN NOW
+  </div>
+
+</div>
+
+<!-- GAME LIST -->
+
+<div class="game-list"
+id="gameList"></div>
+
+<script>
+
+/* GAMES */
+
+const games = [
+
+{
+name:"Jalwa Game",
+img:"https://i.postimg.cc/4NVjvf5G/IMG-20250822-174557.jpg"
+},
+
+{
+name:"TASHAN WIN",
+img:"https://i.postimg.cc/VLffkTF3/6064574584973280709-120.jpg"
+},
+
+{
+name:"BDG WIN",
+img:"https://i.postimg.cc/rmGtCtKW/bigdaddygame.png"
+},
+
+{
+name:"91 Club",
+img:"https://i.postimg.cc/zGDb98JP/6064574584973280707-120.jpg"
+},
+
+{
+name:"51 Game",
+img:"https://i.postimg.cc/L4ztQPtp/56557ac7b64f397687e07dbbdc013e7b-icon.png"
+},
+
+{
+name:"55 Club",
+img:"https://i.postimg.cc/qqkz5NrJ/ZMd-Pue8-LRp-Xf-D865po9mq-V.jpg"
+},
+
+{
+name:"All Game",
+img:"https://i.postimg.cc/cL0mfbtQ/IMG-20260508-051122-360.jpg"
+},
+
+{
+name:"In999",
+img:"https://i.postimg.cc/85kG8M70/8c617b8f19c8a93d533ddf569f14539e-icon-1.png"
+},
+
+{
+name:"Goagame",
+img:"https://i.postimg.cc/jS6BsCY0/37011fefeb2d7bf5b978f6456ad45ddd-icon-2.png"
+},
+
+{
+name:"Diuwin",
+img:"https://i.postimg.cc/g0FRKkxJ/com-diuwin-login.png"
+},
+
+{
+name:"Sikkim",
+img:"https://i.postimg.cc/SshcPdmJ/logo-1754598653.png"
+},
+
+{
+name:"Raja Game",
+img:"https://i.postimg.cc/t4kd1F8h/images.jpg"
+},
+
+{
+name:"Lottery 7",
+img:"https://i.postimg.cc/vZyzkGXQ/fc221defacbae0d2fb6652a4bcbd9cf1-icon-2.png"
+},
+
+{
+name:"Dream 99",
+img:"https://i.postimg.cc/K8VY48Vb/avatar-1735322639.png"
+},
+
+{
+name:"DAMAN GAME",
+img:"https://i.postimg.cc/Zq8JdhSr/images-1.jpg"
+}
+
+];
+
+/* LOAD */
+
+let loaded = 0;
+
+const perLoad = 5;
+
+const gameList =
+document.getElementById("gameList");
+
+/* CREATE GAME */
+
+function loadGames(){
+
+  const next =
+  games.slice(
+    loaded,
+    loaded + perLoad
+  );
+
+  next.forEach(g=>{
+
+    const fileName =
+    g.name
+    .toLowerCase()
+    .replace(/\s+/g,"-")
+    + ".html";
+
+    const div =
+    document.createElement("div");
+
+    div.className = "game";
+
+    div.onclick = ()=>{
+      location.href = fileName;
+    };
+
+    div.innerHTML = `
+
+      <div class="game-left">
+
+        <img src="${g.img}">
+
+        <div>
+
+          <div class="game-name">
+            ${g.name}
+          </div>
+
+          <div class="game-sub">
+            AI prediction enabled
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="status">
+        ACTIVE
+      </div>
+
+    `;
+
+    gameList.appendChild(div);
+
+  });
+
+  loaded += perLoad;
+
+}
+
+/* INITIAL */
+
+loadGames();
+
+/* INFINITE */
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    if(
+      window.innerHeight +
+      window.scrollY >=
+      document.body.offsetHeight - 100
+    ){
+
+      loadGames();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
