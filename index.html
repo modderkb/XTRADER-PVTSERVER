@@ -83,65 +83,35 @@ body{
   width:12px;
   height:12px;
   border-radius:50%;
-
-  background:
-  linear-gradient(135deg,#00e5ff,#7c3aed);
-
-  box-shadow:
-  0 0 10px #00e5ff;
+  background:linear-gradient(135deg,#00e5ff,#7c3aed);
+  box-shadow:0 0 10px #00e5ff;
 }
 
 .screen{
   position:absolute;
   inset:55px 14px 14px;
-
   border-radius:26px;
-
   overflow:auto;
-
-  background:
-  linear-gradient(180deg,#111827,#0a0f1c);
-
+  background:linear-gradient(180deg,#111827,#0a0f1c);
   padding:26px 22px;
 }
 
 .logo-box{
-
   width:85px;
   height:85px;
-
   border-radius:24px;
-
   margin:auto;
-
-  background:
-  linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary),
-    var(--pink)
-  );
-
+  background:linear-gradient(135deg,var(--primary),var(--secondary),var(--pink));
   display:flex;
   justify-content:center;
   align-items:center;
-
-  box-shadow:
-  0 0 35px rgba(124,58,237,.5);
-
+  box-shadow:0 0 35px rgba(124,58,237,.5);
   animation:float 3s ease-in-out infinite;
 }
 
 @keyframes float{
-
-  0%,100%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-
+  0%,100%{transform:translateY(0px);}
+  50%{transform:translateY(-8px);}
 }
 
 .logo-box span{
@@ -151,22 +121,12 @@ body{
 }
 
 .title{
-
   margin-top:22px;
-
   text-align:center;
-
   font-family:Orbitron;
   font-size:24px;
   font-weight:800;
-
-  background:
-  linear-gradient(
-    90deg,
-    var(--secondary),
-    var(--pink)
-  );
-
+  background:linear-gradient(90deg,var(--secondary),var(--pink));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -179,20 +139,10 @@ body{
 }
 
 .card{
-
   margin-top:30px;
-
   padding:22px;
-
   border-radius:24px;
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.03),
-    rgba(255,255,255,.01)
-  );
-
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
   border:1px solid rgba(255,255,255,.05);
 }
 
@@ -204,33 +154,22 @@ label{
 }
 
 .input{
-
   height:56px;
-
   border-radius:16px;
-
   display:flex;
   align-items:center;
-
   padding:0 18px;
-
   background:#0c1325;
-
   border:1px solid rgba(255,255,255,.05);
-
   transition:.25s;
 }
 
 .input:focus-within{
-
   border-color:var(--secondary);
-
-  box-shadow:
-  0 0 15px rgba(0,229,255,.25);
+  box-shadow:0 0 15px rgba(0,229,255,.25);
 }
 
 .input input{
-
   width:100%;
   border:none;
   outline:none;
@@ -244,20 +183,14 @@ label{
 }
 
 .btn{
-
   width:100%;
   height:54px;
-
   border:none;
   border-radius:18px;
-
   cursor:pointer;
-
   font-weight:800;
   font-size:14px;
-
   margin-top:16px;
-
   transition:.25s;
 }
 
@@ -266,79 +199,45 @@ label{
 }
 
 .primary{
-
   color:white;
-
-  background:
-  linear-gradient(
-    135deg,
-    var(--primary),
-    var(--pink)
-  );
-
-  box-shadow:
-  0 0 24px rgba(255,60,172,.35);
+  background:linear-gradient(135deg,var(--primary),var(--pink));
+  box-shadow:0 0 24px rgba(255,60,172,.35);
 }
 
 .success-card{
-
   display:none;
-
   margin-top:24px;
-
   padding:22px;
-
   border-radius:22px;
-
   text-align:center;
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(108,255,50,.12),
-    rgba(0,229,255,.08)
-  );
-
+  background:linear-gradient(135deg,rgba(108,255,50,.12),rgba(0,229,255,.08));
   border:1px solid rgba(108,255,50,.25);
 }
 
 .success-card h2{
-
   font-size:20px;
   margin-bottom:10px;
   color:var(--green);
 }
 
 .success-card p{
-
   color:#c8ffd7;
   font-size:14px;
   line-height:1.6;
 }
 
 .toast{
-
   position:absolute;
-
   left:50%;
   transform:translateX(-50%);
-
   bottom:22px;
-
   min-width:250px;
-
   padding:14px 18px;
-
   border-radius:16px;
-
   background:#101827;
-
   border:1px solid rgba(255,255,255,.08);
-
   color:white;
-
   text-align:center;
-
   display:none;
 }
 
@@ -356,7 +255,6 @@ label{
 <div class="phone">
 
   <div class="punch"></div>
-
   <div class="camera"></div>
 
   <div class="screen">
@@ -365,60 +263,41 @@ label{
       <span>X</span>
     </div>
 
-    <div class="title">
-      X TRADER AI
-    </div>
-
-    <div class="subtitle">
-      SECURE LOGIN SYSTEM
-    </div>
+    <div class="title">X TRADER AI</div>
+    <div class="subtitle">SECURE LOGIN SYSTEM</div>
 
     <div class="card">
 
-      <label>
-        ENTER LICENSE KEY
-      </label>
+      <label>ENTER LICENSE KEY</label>
 
       <div class="input">
-
-        <input
-          id="loginKey"
-          type="text"
-          placeholder="XXXX-XXXX-XXXX"
-          autocomplete="off"
-        >
-
+        <input id="loginKey" type="text" placeholder="XXXX-XXXX-XXXX" autocomplete="off">
       </div>
 
-      <button
-        class="btn primary"
-        id="loginBtn"
-      >
+      <button class="btn primary" id="loginBtn">
         LOGIN NOW
       </button>
 
-      <div
-        class="success-card"
-        id="successCard"
+      <!-- NEW BUTTON -->
+      <button
+        class="btn"
+        style="background:linear-gradient(135deg,#00e5ff,#7c3aed);color:white;box-shadow:0 0 24px rgba(0,229,255,.25);"
+        onclick="window.location.href='https://t.me/desibillal1'"
       >
+        BUY LICENSE KEY
+      </button>
 
-        <h2>
-          KEY NOT ACTIVATED
-        </h2>
+      <div class="success-card" id="successCard">
+
+        <h2>KEY NOT ACTIVATED</h2>
 
         <p id="successText">
-
           This key is not activated yet.
           <br><br>
-
           Click below to activate 👇
-
         </p>
 
-        <button
-          class="btn primary"
-          id="activateBtn"
-        >
+        <button class="btn primary" id="activateBtn">
           ACTIVATE
         </button>
 
@@ -428,245 +307,90 @@ label{
 
   </div>
 
-  <div
-    class="toast"
-    id="toast"
-  ></div>
+  <div class="toast" id="toast"></div>
 
 </div>
 
-<!-- FIREBASE -->
-
 <script type="module">
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getDatabase,
-  ref,
-  child,
-  get
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-/* FIREBASE CONFIG */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const firebaseConfig = {
-
-  apiKey:
-  "AIzaSyBMY5a4iTzcP-dUOGR4J4Q1_PVS-BXYYLw",
-
-  authDomain:
-  "lord-x-2f6d8.firebaseapp.com",
-
-  databaseURL:
-  "https://lord-x-2f6d8-default-rtdb.firebaseio.com",
-
-  projectId:
-  "lord-x-2f6d8",
-
-  storageBucket:
-  "lord-x-2f6d8.appspot.com",
-
-  messagingSenderId:
-  "621018871322",
-
-  appId:
-  "1:621018871322:android:87d689999e7ae2337943a3"
-
+  apiKey: "AIzaSyBMY5a4iTzcP-dUOGR4J4Q1_PVS-BXYYLw",
+  authDomain: "lord-x-2f6d8.firebaseapp.com",
+  databaseURL: "https://lord-x-2f6d8-default-rtdb.firebaseio.com",
+  projectId: "lord-x-2f6d8",
+  storageBucket: "lord-x-2f6d8.appspot.com",
+  messagingSenderId: "621018871322",
+  appId: "1:621018871322:android:87d689999e7ae2337943a3"
 };
 
-/* INIT */
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-const app =
-initializeApp(firebaseConfig);
+const toast = document.getElementById("toast");
+const successCard = document.getElementById("successCard");
+const loginBtn = document.getElementById("loginBtn");
 
-const db =
-getDatabase(app);
-
-/* ELEMENTS */
-
-const toast =
-document.getElementById("toast");
-
-const successCard =
-document.getElementById("successCard");
-
-const loginBtn =
-document.getElementById("loginBtn");
-
-/* TOAST */
-
-function showToast(
-  msg,
-  error=false
-){
-
+function showToast(msg, error=false){
   toast.innerText = msg;
-
-  toast.classList.toggle(
-    "error",
-    error
-  );
-
-  toast.style.display =
-  "block";
-
-  setTimeout(()=>{
-
-    toast.style.display =
-    "none";
-
-  },2500);
-
+  toast.classList.toggle("error", error);
+  toast.style.display = "block";
+  setTimeout(()=>{ toast.style.display = "none"; },2500);
 }
-
-/* LOGIN */
 
 async function login(){
 
-  const key =
-  document
-  .getElementById("loginKey")
-  .value
-  .trim();
+  const key = document.getElementById("loginKey").value.trim();
 
   if(!key){
-
-    showToast(
-      "Please Enter Key",
-      true
-    );
-
+    showToast("Please Enter Key", true);
     return;
-
   }
 
-  loginBtn.innerText =
-  "VERIFYING...";
-
-  loginBtn.disabled =
-  true;
+  loginBtn.innerText = "VERIFYING...";
+  loginBtn.disabled = true;
 
   try{
 
-    const snapshot =
-    await get(
-      child(
-        ref(db),
-        "keys/" + key
-      )
-    );
+    const snapshot = await get(child(ref(db), "keys/" + key));
 
     if(snapshot.exists()){
 
-      const data =
-      snapshot.val();
+      const data = snapshot.val();
 
-      /* ACTIVATED */
-
-      if(
-        data.activated === true
-      ){
-
-        showToast(
-          "Login Success"
-        );
-
-        setTimeout(()=>{
-
-          window.location.href =
-          "home.html";
-
-        },1500);
-
+      if(data.activated === true){
+        showToast("Login Success");
+        setTimeout(()=>{ window.location.href = "home.html"; },1500);
+      } else {
+        successCard.style.display = "block";
+        showToast("Key Not Activated", true);
       }
 
-      /* NOT ACTIVATED */
-
-      else{
-
-        successCard.style.display =
-        "block";
-
-        showToast(
-          "Key Not Activated",
-          true
-        );
-
-      }
-
-    }
-
-    /* INVALID KEY */
-
-    else{
-
-      successCard.style.display =
-      "none";
-
-      showToast(
-        "Invalid License Key",
-        true
-      );
-
+    } else {
+      successCard.style.display = "none";
+      showToast("Invalid License Key", true);
     }
 
   }catch(err){
-
     console.log(err);
-
-    showToast(
-      "Firebase Connection Error",
-      true
-    );
-
+    showToast("Firebase Connection Error", true);
   }
 
-  loginBtn.disabled =
-  false;
-
-  loginBtn.innerText =
-  "LOGIN NOW";
-
+  loginBtn.disabled = false;
+  loginBtn.innerText = "LOGIN NOW";
 }
 
-/* EVENTS */
+loginBtn.addEventListener("click", login);
 
-loginBtn.addEventListener(
-  "click",
-  login
-);
+document.getElementById("loginKey").addEventListener("keypress", e=>{
+  if(e.key==="Enter") login();
+});
 
-document
-.getElementById("loginKey")
-.addEventListener(
-  "keypress",
-  e=>{
-
-    if(e.key==="Enter"){
-
-      login();
-
-    }
-
-  }
-);
-
-/* ACTIVATE BUTTON */
-
-document
-.getElementById("activateBtn")
-.addEventListener(
-  "click",
-  ()=>{
-
-    window.location.href =
-    "activate.html";
-
-  }
-);
+document.getElementById("activateBtn").addEventListener("click", ()=>{
+  window.location.href = "activate.html";
+});
 
 </script>
 
