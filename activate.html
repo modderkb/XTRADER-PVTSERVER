@@ -28,9 +28,9 @@ body{
     background:#6b1fb1;
     color:#fff;
     text-align:center;
-    padding:20px 10px;
+    padding:10px 10px;
     font-size:22px;
-    font-weight:70;
+    font-weight:600;
     text-transform:lowercase;
     box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
@@ -114,6 +114,11 @@ body{
     color:#fff;
     font-size:14px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.copy-btn:hover{
+    background:#1788f0;
 }
 
 .tip{
@@ -142,6 +147,11 @@ body{
     font-size:15px;
     margin-top:10px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    background:#417eff;
 }
 
 .notice{
@@ -172,6 +182,20 @@ body{
 
 }
 
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
 </style>
 </head>
 <body>
@@ -179,7 +203,7 @@ body{
 <!-- TOP HEADER -->
 
 <div class="top-header">
-    Payment 
+    Payment
 </div>
 
 <div class="container">
@@ -335,17 +359,63 @@ function checkPayment(){
         loader.style.display = "none";
 
         result.innerHTML = `
+        
         <div style="
-        color:red;
-        font-size:14px;
-        font-weight:600;
+        background:#fff4f4;
+        border:1px solid #ffb3b3;
+        border-radius:14px;
+        padding:20px;
+        margin-top:15px;
         text-align:center;
-        margin-top:10px;
+        box-shadow:0 4px 12px rgba(255,0,0,0.08);
+        animation:fadeIn 0.4s ease;
         ">
-        Payment not received.<br>
-        Make sure you paid and entered the correct UTR.
+
+            <div style="
+            font-size:48px;
+            margin-bottom:10px;
+            ">
+            
+            </div>
+
+            <div style="
+            color:#e53935;
+            font-size:20px;
+            font-weight:700;
+            margin-bottom:10px;
+            ">
+            Payment Not Received
+            </div>
+
+            <div style="
+            color:#555;
+            font-size:14px;
+            line-height:23px;
+            margin-bottom:16px;
+            ">
+            We could not verify your payment yet.<br>
+            If payment has already been completed,<br>
+            please contact admin support.
+            </div>
+
+            <a href="https://t.me/desibillal1" target="_blank" style="
+            display:inline-block;
+            background:#229ED9;
+            color:#fff;
+            text-decoration:none;
+            padding:11px 22px;
+            border-radius:8px;
+            font-size:14px;
+            font-weight:600;
+            box-shadow:0 4px 10px rgba(34,158,217,0.3);
+            ">
+            Contact Admin
+            </a>
+
         </div>
         `;
+
+        // SHOW BUTTON AGAIN
 
         btn.style.display = "block";
 
